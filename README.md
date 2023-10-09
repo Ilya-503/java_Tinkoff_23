@@ -1,5 +1,7 @@
-![Build Status](https://github.com/sanyarnd/java-course-2023/actions/workflows/build.yml/badge.svg)
+![Build Status](https://github.com/Ilya-503/java_Tinkoff_23/actions/workflows/build.yml/badge.svg)
 
-Домашние задания курса https://fintech.tinkoff.ru/academy/java
 
-Студент: `ФИО`
+Студент: `Шумилов Илья Васильевич`\
+Группа: `8`\
+Семинарист: `Оксана Алферова`
+
