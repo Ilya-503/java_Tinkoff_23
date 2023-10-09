@@ -66,6 +66,7 @@ public class Task1Test {
     @ValueSource(strings = {
         "432:fds",
         ":",
+        "",
         "gs:fsd:fs",
         "ga:fd",
         ":fdf",
