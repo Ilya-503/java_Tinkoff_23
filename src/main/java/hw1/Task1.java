@@ -17,7 +17,7 @@ public class Task1 {
 
             return minutes * 60 + seconds;
 
-        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
+        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException | NullPointerException e) {
             LOGGER.error("Неверный формат длины видео ");
             return -1;
         }
