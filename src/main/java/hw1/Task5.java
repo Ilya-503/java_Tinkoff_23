@@ -3,8 +3,12 @@ package hw1;
 import java.util.stream.IntStream;
 
 public class Task5 {
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("1237321"));
+    }
    public static boolean isPalindromeDescendant(int num) {
        try {
+           num = Math.abs(num);
            String numStr = String.valueOf(num);
 
            while (numStr.length() > 1) {
@@ -20,7 +24,7 @@ public class Task5 {
    }
    private static boolean isPalindrome(String numStr) {
         int len = numStr.length();
-        int r = len / 2 - len % 2;
+        int r = len / 2;
         return IntStream
             .range(0, r)
             .allMatch(idx -> numStr.charAt(idx) == numStr.charAt(len - idx - 1));
