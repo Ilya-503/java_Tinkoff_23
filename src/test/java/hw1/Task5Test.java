@@ -18,7 +18,8 @@ public class Task5Test {
         5325
     })
     public void isNotPalindromeDescendantTest(int num) {
-        assertThat(isPalindromeDescendant(num)).isFalse();
+        boolean isPalindromeDescendant = isPalindromeDescendant(num);
+        assertThat(isPalindromeDescendant).isFalse();
     }
 
     @DisplayName("Check Task5 with palindrome")
@@ -27,9 +28,10 @@ public class Task5Test {
         11,
         121,
         65,
-        11211230
+        -11211230
     })
     public void isPalindromeDescendantTest(int num) {
-        assertThat(isPalindromeDescendant(num)).isTrue();
+        boolean isPalindromeDescendant = isPalindromeDescendant(num);
+        assertThat(isPalindromeDescendant).isTrue();
     }
 }

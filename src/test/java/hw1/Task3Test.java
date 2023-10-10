@@ -14,7 +14,8 @@ public class Task3Test {
     @ParameterizedTest(name = "arr1 = {0}, arr2 = {1}")
     @MethodSource("provideArgsWithNull")
     public void isNestableWithNullArgsTest(int[] nestingArr, int[] toNestArr) {
-        assertThat(isNestable(nestingArr, toNestArr)).isFalse();
+        boolean isNestable = isNestable(nestingArr, toNestArr);
+        assertThat(isNestable).isFalse();
     }
 
     private static Stream<Arguments> provideArgsWithNull() {
@@ -28,7 +29,8 @@ public class Task3Test {
     @ParameterizedTest(name = "arr1 = {0}, arr2 = {1}")
     @MethodSource("provideNestableArrs")
     public void nestableArrsTest(int[] nestingArr, int[] toNestArr) {
-        assertThat(isNestable(nestingArr, toNestArr)).isTrue();
+        boolean isNestable = isNestable(nestingArr, toNestArr);
+        assertThat(isNestable).isTrue();
     }
 
     private static Stream<Arguments> provideNestableArrs() {
@@ -45,7 +47,8 @@ public class Task3Test {
     @ParameterizedTest(name = "arr1 = {0}, arr2 = {1}")
     @MethodSource("provideNonNestableArrs")
     public void nonNestableArrsTest(int[] nestingArr, int[] toNestArr) {
-        assertThat(isNestable(nestingArr, toNestArr)).isFalse();
+        boolean isNestable = isNestable(nestingArr, toNestArr);
+        assertThat(isNestable).isFalse();
     }
 
     private static Stream<Arguments> provideNonNestableArrs() {
