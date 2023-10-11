@@ -1,11 +1,13 @@
 package hw1.Task7;
 
-import java.math.BigInteger;
 import java.util.BitSet;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+import static hw1.Task2.getNumLen;
 
 public class Task7 {
-
     private static final RotateBitProvider leftRotateProvider = ((bit, shiftBit, len) -> {
         int newBit = bit + shiftBit;
         return newBit > len - 1 ?
@@ -34,38 +36,43 @@ public class Task7 {
     }
 
     private static int rotateNum(int num, int shiftBit, ROTATE_DIRECTION direction) {
-        if (num < 0 || shiftBit < 0 ) {
-            throw new IllegalArgumentException();
-        }
-        if (num == 0) {
-            return 0;
-        }
-
         try {
-            BitSet inputBits = BitSet.valueOf(
-                BigInteger
-                    .valueOf(num)
-                    .toByteArray()
-            );
-            int len = inputBits.length();
-            BitSet resBits = new BitSet(len);
+            if (num < 0 || shiftBit < 0 ) {
+                throw new IllegalArgumentException();
+            }
+            if (num == 0) {
+                return 0;
+            }
 
-            inputBits.stream().forEach(
+            AtomicInteger rotatedNum = new AtomicInteger();
+            Set<Integer> inputBits = getBitSet(num);
+            int len = Integer.toBinaryString(num).length();
+
+            inputBits.forEach(
                 bit -> {
                     var bitProvider = bitProviders.get(direction);
-                    int newBit = bitProvider.getBit(bit, shiftBit, len);
-                    resBits.set(newBit);
+                    int newBit = bitProvider.getBit(bit, shiftBit % len, len);
+                    rotatedNum.addAndGet((int) Math.pow(2, newBit));
                 }
             );
-            return resBits
-                .stream()
-                .reduce(
-                    0,
-                    (res, bit) -> res + (int) Math.pow(2, bit)
-                );
+            return rotatedNum.intValue();
+
         } catch (NullPointerException | IllegalArgumentException e) {
             return -1;
         }
+    }
+
+    private static Set<Integer> getBitSet(int num) {
+        Set<Integer> bitSet = new HashSet<>();
+        int idx = 0;
+        while (num > 0) {
+            if (num % 2 == 1) {
+                bitSet.add(idx);
+            }
+            num /= 2;
+            idx++;
+        }
+        return bitSet;
     }
 }
 
