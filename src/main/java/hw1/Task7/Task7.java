@@ -1,11 +1,9 @@
 package hw1.Task7;
 
-import java.util.BitSet;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
-import static hw1.Task2.getNumLen;
 
 public class Task7 {
     private static final RotateBitProvider leftRotateProvider = ((bit, shiftBit, len) -> {

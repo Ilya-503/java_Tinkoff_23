@@ -8,7 +8,11 @@ public class Task6 {
         }
 
         int minNum = 0, maxNum = 0;
-        int[] digChars = String.valueOf(num).chars().sorted().toArray();
+        int[] digChars = String
+            .valueOf(num)
+            .chars()
+            .sorted()
+            .toArray();
 
         for (byte i = 0; i < 4; i++) {
             int digit = digChars[i] - '0';
