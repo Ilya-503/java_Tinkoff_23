@@ -1,11 +1,17 @@
-package hw1;
+package edu.homework1;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Task1 {
-    private final static Logger LOGGER = LogManager.getLogger();
-    public static int getVideoLenInSec(String lenStr) {
+public final class Task1 {
+
+    private Task1() {
+    }
+
+    private static final Logger LOGGER = LogManager.getLogger();
+
+    @SuppressWarnings("MagicNumber")
+    public static int getVideoLenInSec(final String lenStr) {
         try {
             String[] lenArr = lenStr.split(":");
             int minutes = Integer.parseInt(lenArr[0]);
@@ -14,10 +20,11 @@ public class Task1 {
             if (seconds < 0 || seconds > 59 || minutes < 0) {
                 throw new IllegalArgumentException();
             }
-
             return minutes * 60 + seconds;
 
-        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException | NullPointerException e) {
+        } catch (IllegalArgumentException
+                 | ArrayIndexOutOfBoundsException
+                 | NullPointerException e) {
             LOGGER.error("Неверный формат длины видео ");
             return -1;
         }

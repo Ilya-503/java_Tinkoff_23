@@ -1,10 +1,14 @@
-package hw1;
+package edu.homework1;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Task3 {
-    public static boolean isNestable(int[] nestingArr, int[] toNestArr) {
+public final class Task3 {
+
+    private Task3() {
+    }
+
+    public static boolean isNestable(final int[] nestingArr, final int[] toNestArr) {
         try {
             if (nestingArr.length == 0) {
                 return true;
@@ -24,7 +28,7 @@ public class Task3 {
         }
     }
 
-    private static int[] getArrExtremeValues(int[] arr) {
+    private static int[] getArrExtremeValues(final int[] arr) {
         AtomicInteger minV = new AtomicInteger(Integer.MAX_VALUE);
         AtomicInteger maxV = new AtomicInteger(Integer.MIN_VALUE);
 

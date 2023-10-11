@@ -1,11 +1,11 @@
-package hw1;
+package edu.homework1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
-import static hw1.Task4.getCorrectStr;
+import static edu.homework1.Task4.getCorrectStr;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task4Test {

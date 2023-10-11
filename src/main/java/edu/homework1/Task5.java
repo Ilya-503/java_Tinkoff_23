@@ -1,15 +1,16 @@
-package hw1;
+package edu.homework1;
 
 import java.util.stream.IntStream;
 
-public class Task5 {
-    public static void main(String[] args) {
-        System.out.println(isPalindrome("1237321"));
+public final class Task5 {
+
+    private Task5() {
     }
-   public static boolean isPalindromeDescendant(int num) {
+
+    public static boolean isPalindromeDescendant(final int num) {
        try {
-           num = Math.abs(num);
-           String numStr = String.valueOf(num);
+           int absNum = Math.abs(num);
+           String numStr = String.valueOf(absNum);
 
            while (numStr.length() > 1) {
                if (isPalindrome(numStr)) {
@@ -22,14 +23,16 @@ public class Task5 {
            return false;
        }
    }
-   private static boolean isPalindrome(String numStr) {
+
+   private static boolean isPalindrome(final String numStr) {
         int len = numStr.length();
         int r = len / 2;
         return IntStream
             .range(0, r)
             .allMatch(idx -> numStr.charAt(idx) == numStr.charAt(len - idx - 1));
    }
-   private static String getDescendant(String numStr) {
+
+   private static String getDescendant(final String numStr) {
         int len = numStr.length();
         StringBuilder result = new StringBuilder(len);
 
