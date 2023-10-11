@@ -26,6 +26,6 @@ public class Task6 {
         return String
             .valueOf(num)
             .chars()
-            .allMatch(el -> el - '0' == num % 10);
+            .allMatch(chr -> chr - '0' == num % 10);
     }
 }
