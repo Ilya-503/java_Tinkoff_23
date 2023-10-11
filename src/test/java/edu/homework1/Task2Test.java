@@ -1,9 +1,9 @@
-package hw1;
+package edu.homework1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import static hw1.Task2.getNumLen;
+import static edu.homework1.Task2.getNumLen;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task2Test {

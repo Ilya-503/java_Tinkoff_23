@@ -1,4 +1,4 @@
-package hw1;
+package edu.homework1;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThat;
-import static hw1.Task1.getVideoLenInSec;
+import static edu.homework1.Task1.getVideoLenInSec;
 
 public class Task1Test {
     private static StringBuilder strBuilder;

@@ -1,6 +1,10 @@
-package hw1;
+package edu.homework1;
 
-public class Task4 {
+public final class Task4 {
+
+    private Task4() {
+    }
+
     public static String getCorrectStr(String str) {
         try {
             int len = str.length();

@@ -1,4 +1,4 @@
-package hw1.Task7;
+package edu.homework1.Task7;
 
 public class BitProvider {
 
