@@ -8,20 +8,16 @@ public final class Task5 {
     }
 
     public static boolean isPalindromeDescendant(final int num) {
-       try {
-           int absNum = Math.abs(num);
-           String numStr = String.valueOf(absNum);
+        int absNum = Math.abs(num);
+        String numStr = String.valueOf(absNum);
 
-           while (numStr.length() > 1) {
-               if (isPalindrome(numStr)) {
-                   return true;
-               }
-               numStr = getDescendant(numStr);
-           }
-           return false;
-       } catch (NullPointerException e) {
-           return false;
-       }
+        while (numStr.length() > 1) {
+            if (isPalindrome(numStr)) {
+                return true;
+            }
+            numStr = getDescendant(numStr);
+        }
+        return false;
    }
 
    private static boolean isPalindrome(final String numStr) {

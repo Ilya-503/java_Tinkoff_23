@@ -38,30 +38,25 @@ public final class Task7 {
     }
 
     private static int rotateNum(int num, int shiftBit, RotateDirection direction) {
-        try {
-            if (num < 0 || shiftBit < 0) {
-                throw new IllegalArgumentException();
-            }
-            if (num == 0) {
-                return 0;
-            }
-
-            AtomicInteger rotatedNum = new AtomicInteger();
-            Set<Integer> inputBits = getBitSet(num);
-            int len = Integer.toBinaryString(num).length();
-
-            inputBits.forEach(
-                bit -> {
-                    var bitProvider = BIT_PROVIDER_MAP.get(direction);
-                    int newBit = bitProvider.getBit(bit, shiftBit % len, len);
-                    rotatedNum.addAndGet((int) Math.pow(2, newBit));
-                }
-            );
-            return rotatedNum.intValue();
-
-        } catch (NullPointerException | IllegalArgumentException e) {
+        if (direction == null || num < 0 || shiftBit < 0) {
             return -1;
         }
+        if (num == 0) {
+            return 0;
+        }
+
+        AtomicInteger rotatedNum = new AtomicInteger();
+        Set<Integer> inputBits = getBitSet(num);
+        int len = Integer.toBinaryString(num).length();
+
+        inputBits.forEach(
+            bit -> {
+                var bitProvider = BIT_PROVIDER_MAP.get(direction);
+                int newBit = bitProvider.getBit(bit, shiftBit % len, len);
+                rotatedNum.addAndGet((int) Math.pow(2, newBit));
+            }
+        );
+        return rotatedNum.intValue();
     }
 
     @SuppressWarnings("ParameterAssignment")

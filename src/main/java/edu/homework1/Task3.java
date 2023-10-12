@@ -6,23 +6,23 @@ public final class Task3 {
     }
 
     public static boolean isNestable(final int[] nestingArr, final int[] toNestArr) {
-        try {
-            if (nestingArr.length == 0) {
-                return true;
-            }
-            if (toNestArr.length == 0) {
-                return false;
-            }
-
-            int[] nestingArrExtrVals = getArrExtremeValues(nestingArr);
-            int[] toNestArrExtrVals = getArrExtremeValues(toNestArr);
-
-            return nestingArrExtrVals[0] > toNestArrExtrVals[0]
-                && nestingArrExtrVals[1] < toNestArrExtrVals[1];
-
-        } catch (NullPointerException e) {
+        if (nestingArr == null || toNestArr == null) {
             return false;
         }
+
+        if (nestingArr.length == 0) {
+            return true;
+        }
+
+        if (toNestArr.length == 0) {
+            return false;
+        }
+
+        int[] nestingArrExtrVals = getArrExtremeValues(nestingArr);
+        int[] toNestArrExtrVals = getArrExtremeValues(toNestArr);
+
+        return nestingArrExtrVals[0] > toNestArrExtrVals[0]
+            && nestingArrExtrVals[1] < toNestArrExtrVals[1];
     }
 
     private static int[] getArrExtremeValues(final int[] arr) {
