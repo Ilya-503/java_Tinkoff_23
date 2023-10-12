@@ -1,8 +1,5 @@
 package edu.homework1;
 
-import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicInteger;
-
 public final class Task3 {
 
     private Task3() {
@@ -29,16 +26,13 @@ public final class Task3 {
     }
 
     private static int[] getArrExtremeValues(final int[] arr) {
-        AtomicInteger minV = new AtomicInteger(Integer.MAX_VALUE);
-        AtomicInteger maxV = new AtomicInteger(Integer.MIN_VALUE);
+        int minV = Integer.MAX_VALUE;
+        int maxV = Integer.MIN_VALUE;
 
-        Arrays
-            .stream(arr)
-            .forEach(val -> {
-                minV.set(Math.min(minV.get(), val));
-                maxV.set(Math.max(maxV.get(), val));
-        });
-        return new int[] {minV.intValue(), maxV.intValue()};
-
+        for (int num: arr) {
+            minV = Math.min(minV, num);
+            maxV = Math.max(maxV, num);
+        }
+        return new int[] {minV, maxV};
     }
 }

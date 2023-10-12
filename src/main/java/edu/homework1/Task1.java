@@ -9,18 +9,18 @@ public final class Task1 {
     }
 
     private static final Logger LOGGER = LogManager.getLogger();
+    private static final int SECS_IN_MIN = 60;
 
-    @SuppressWarnings("MagicNumber")
     public static int getVideoLenInSec(final String lenStr) {
         try {
             String[] lenArr = lenStr.split(":");
             int minutes = Integer.parseInt(lenArr[0]);
             int seconds = Integer.parseInt(lenArr[1]);
 
-            if (seconds < 0 || seconds > 59 || minutes < 0) {
+            if (seconds < 0 || seconds + 1 > SECS_IN_MIN || minutes < 0) {
                 throw new IllegalArgumentException();
             }
-            return minutes * 60 + seconds;
+            return minutes * SECS_IN_MIN + seconds;
 
         } catch (IllegalArgumentException
                  | ArrayIndexOutOfBoundsException
