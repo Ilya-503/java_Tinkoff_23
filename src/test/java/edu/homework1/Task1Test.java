@@ -1,7 +1,5 @@
 package edu.homework1;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -10,18 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static edu.homework1.Task1.getVideoLenInSec;
 
 public class Task1Test {
-    private static StringBuilder strBuilder;
-
-
-    @BeforeAll
-    public static void setUp() {
-        strBuilder = new StringBuilder();
-    }
-
-    @BeforeEach
-    public void cleanStrBuilder() {
-        strBuilder.setLength(0);
-    }
 
     @DisplayName("Check Task1 with legal data")
     @ParameterizedTest(name = "mins = {0}, secs = {1}")
@@ -33,12 +19,8 @@ public class Task1Test {
         "432, 21"
     })
     public void getVideoLenWithLegalArgsTest(int minutes, int seconds) {
-        strBuilder
-            .append(minutes)
-            .append(":")
-            .append(seconds);
-
-        int videoLen = getVideoLenInSec(strBuilder.toString());
+        String videoLenStr = getVideoLenString(minutes, seconds);
+        int videoLen = getVideoLenInSec(videoLenStr);
         assertThat(videoLen).isEqualTo(minutes * 60 + seconds);
     }
 
@@ -51,14 +33,9 @@ public class Task1Test {
         "43, -01"
     })
     public void getVideoLenWithIllegalIntArgsTest(int minutes, int seconds) {
-        strBuilder
-            .append(minutes)
-            .append(":")
-            .append(seconds);
-
-        int videoLen = getVideoLenInSec(strBuilder.toString());
+        String videoLenStr = getVideoLenString(minutes, seconds);
+        int videoLen = getVideoLenInSec(videoLenStr);
         assertThat(videoLen).isEqualTo(-1);
-
     }
 
     @DisplayName("Check Task1 with illegal data")
@@ -75,5 +52,13 @@ public class Task1Test {
     public void getVideoLenWithIllegalArgsTest(String videoLenStr) {
         int videoLen = getVideoLenInSec(videoLenStr);
         assertThat(videoLen).isEqualTo(-1);
+    }
+
+    private static String getVideoLenString(int mins, int secs) {
+        return new StringBuilder()
+            .append(mins)
+            .append(":")
+            .append(secs == 0 ? "00" : secs)
+            .toString();
     }
 }
