@@ -3,7 +3,6 @@ package edu.homework1.Task7;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public final class Task7 {
 
@@ -45,18 +44,16 @@ public final class Task7 {
             return 0;
         }
 
-        AtomicInteger rotatedNum = new AtomicInteger();
+        int rotatedNum = 0;
         Set<Integer> inputBits = getBitSet(num);
         int len = Integer.toBinaryString(num).length();
 
-        inputBits.forEach(
-            bit -> {
-                var bitProvider = BIT_PROVIDER_MAP.get(direction);
-                int newBit = bitProvider.getBit(bit, shiftBit % len, len);
-                rotatedNum.addAndGet((int) Math.pow(2, newBit));
-            }
-        );
-        return rotatedNum.intValue();
+        for (int bit: inputBits) {
+            var bitProvider = BIT_PROVIDER_MAP.get(direction);
+            int newBit = bitProvider.getBit(bit, shiftBit % len, len);
+            rotatedNum += (int) Math.pow(2, newBit);
+        }
+        return rotatedNum;
     }
 
     @SuppressWarnings("ParameterAssignment")
