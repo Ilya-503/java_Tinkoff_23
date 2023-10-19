@@ -19,7 +19,7 @@ public class Rectangle implements FlatShape {
         return new Rectangle(width, height);
     }
 
-    public Rectangle setHeight(double height){
+    public Rectangle setHeight(double height) {
         return new Rectangle(width, height);
     }
 
