@@ -10,6 +10,7 @@ public final class Utils {
     }
 
     public final static Logger LOGGER = LogManager.getLogger();
+    private static final long MILLIS_TO_SLEEP = 1500;
 
     public static void imitateGettingConnection(Connection connection) {
         makeImitation("Getting connection ...");
@@ -22,10 +23,9 @@ public final class Utils {
 
    private static void makeImitation(String actionMsg) {
         LOGGER.info(actionMsg);
-        long millisToSleep = 1500;
 
         try {
-            Thread.sleep(millisToSleep);
+            Thread.sleep(MILLIS_TO_SLEEP);
         } catch (InterruptedException e) {
             LOGGER.error(e.getMessage());
         }
