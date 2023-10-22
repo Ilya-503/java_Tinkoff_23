@@ -5,7 +5,7 @@ import static edu.project1.Utils.isMatchingRegex;
 
 public final class SessionBuilder {
 
-    private static final String CORRECT_WORD_REGEX = "^[a-zA-Z]{2,}$";
+    private static final String CORRECT_WORD_REGEX = "^[a-z]{2,}$";
     private static final int ALPHABET_SIZE = 23;
 
     private SessionBuilder() {
