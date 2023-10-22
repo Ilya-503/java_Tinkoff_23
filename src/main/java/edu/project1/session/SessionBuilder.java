@@ -11,7 +11,7 @@ public final class SessionBuilder {
     private SessionBuilder() {
     }
 
-    public static Session startNewSession(String hiddenWord, int maxMistakes) throws IllegalArgumentException {
+    public static Session getNewSession(String hiddenWord, int maxMistakes) throws IllegalArgumentException {
         int lettersAmount = countUniqueLetters(hiddenWord);
         checkIfLegalWord(hiddenWord, lettersAmount);
         checkIfLegalMaxMistakes(maxMistakes, hiddenWord.length());

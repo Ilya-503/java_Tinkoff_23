@@ -18,7 +18,8 @@ public final class GameRunner {
         int maxMistakes = 6;
 
         try {
-            Session session = SessionBuilder.startNewSession(hiddenWord, maxMistakes);
+            Session session = SessionBuilder.getNewSession(hiddenWord, maxMistakes);
+            session.startGame();
         } catch (IllegalArgumentException e) {
             LOGGER.error(e.getMessage());
         }

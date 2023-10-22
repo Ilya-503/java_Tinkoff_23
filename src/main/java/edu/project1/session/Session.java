@@ -21,12 +21,12 @@ public final class Session {
 
         userWord = new char[hiddenWord.length()];
         Arrays.fill(userWord, '*');
-
-        startGame(maxMistakes, hiddenWord.length());
     }
 
-    public void startGame(int maxMistakes, int hiddenWordLen) {
-        gameConsole.printStartMsg(maxMistakes, hiddenWordLen);
+    public void startGame() {
+        int maxMistakes = game.getMaxMistakes();
+        int wordLen = game.getHiddenWord().length();
+        gameConsole.printStartMsg(maxMistakes, wordLen);
 
         playGame();
     }
