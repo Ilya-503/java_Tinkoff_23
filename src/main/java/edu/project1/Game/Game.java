@@ -1,14 +1,15 @@
 package edu.project1.Game;
 
+import edu.project1.Game.GuessResult.FailedGuess;
+import edu.project1.Game.GuessResult.SuccessGuess;
 import edu.project1.Game.status.GameStatus;
-import edu.project1.Game.GuessResult.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import static edu.project1.Game.status.GameStatus.DEFEAT;
-import static edu.project1.Game.status.GameStatus.WIN;
 import static edu.project1.Game.status.GameStatus.PLAYING;
+import static edu.project1.Game.status.GameStatus.WIN;
 import static edu.project1.Utils.parseWordByChars;
 
 public final class Game {

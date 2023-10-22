@@ -6,6 +6,7 @@ import java.util.List;
 public sealed interface GuessResult {
 
    List<Integer> getLetterIndexes();
+
    String getMsg();
 
     final class SuccessGuess implements GuessResult {

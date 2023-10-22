@@ -11,7 +11,7 @@ public final class Utils {
     private Utils() {
     }
 
-  public static Map<Character, List<Integer>> parseWordByChars(final String word) {
+  public static Map<Character, List<Integer>> parseWordByChars(String word) {
         var wordChars = new HashMap<Character, List<Integer>>();
         if (word == null) {
             return wordChars;

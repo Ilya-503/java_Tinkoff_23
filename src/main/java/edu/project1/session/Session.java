@@ -1,8 +1,8 @@
 package edu.project1.session;
 
 import edu.project1.Game.Game;
-import edu.project1.Game.status.GameStatus;
 import edu.project1.Game.GuessResult;
+import edu.project1.Game.status.GameStatus;
 import java.util.Arrays;
 import java.util.List;
 import static edu.project1.Game.status.GameStatus.DEFEAT;

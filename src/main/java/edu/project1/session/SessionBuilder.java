@@ -1,6 +1,5 @@
 package edu.project1.session;
 
-import edu.project1.session.Session;
 import java.util.HashSet;
 import static edu.project1.Utils.isMatchingRegex;
 

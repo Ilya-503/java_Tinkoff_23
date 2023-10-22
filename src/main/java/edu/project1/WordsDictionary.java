@@ -11,7 +11,7 @@ public final class WordsDictionary {
         "google"
     );
 
-    private final static Random rand = new Random();
+    private final static Random RANDOM = new Random();
 
     private WordsDictionary() {
     }
@@ -19,6 +19,6 @@ public final class WordsDictionary {
     public static String getRandomWord() {
         int len = WORDS.size();
         return WORDS
-            .get(rand.nextInt(0, len));
+            .get(RANDOM.nextInt(0, len));
     }
 }

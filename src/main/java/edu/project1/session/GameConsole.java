@@ -1,16 +1,20 @@
 package edu.project1.session;
 
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import static edu.project1.Utils.isMatchingRegex;
 
 public final class GameConsole {
 
-    private static final String GIVE_UP_COMMAND ="gp";
+    private static final String GIVE_UP_COMMAND = "gp";
     private static final String LETTER_REGEX = "^[\\s]*[a-zA-z][\\s]*$";
     private final Scanner reader;
+    private final Logger logger;
 
     GameConsole() {
         reader = new Scanner(System.in);
+        logger = LogManager.getLogger();
     }
 
     public void printStartMsg(int maxMistakes, int hiddenWordLen) {
@@ -54,7 +58,7 @@ public final class GameConsole {
     }
 
     void printMsg(String msg) {
-        System.out.println(msg);
+        logger.info(msg);
     }
 
 }
