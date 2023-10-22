@@ -1,9 +1,8 @@
 package edu.project1;
 
-import edu.project1.GuessResultType.GuessResult;
-import edu.project1.GuessResultType.GuessResult.Defeat;
 import java.util.Arrays;
 import java.util.List;
+import static edu.project1.GameStatus.DEFEAT;
 
 public final class Session {
 
@@ -24,7 +23,7 @@ public final class Session {
     }
 
     public void startGame() {
-        boolean isLegalHiddenWord = game.checkIfLegalWord();
+        boolean isLegalHiddenWord = game.checkIfLegalWord(hiddenWord);
         boolean isLegalMaxMistakes = game.checkIfLegalMaxMistakes();
 
         if (!isLegalHiddenWord) {
@@ -36,26 +35,25 @@ public final class Session {
             return;
         }
 
+        gameConsole.printStartMsg(game.getMaxMistakes(), hiddenWord.length());
         playGame();
     }
 
 
     private void playGame() {
-        gameConsole.printStartMsg(game.getMaxMistakes(), hiddenWord.length());
 
         while (!isGameEnd) {
             gameConsole.printMsg("The word: " + new String(userWord) + "\n");
             String userInput = gameConsole.getUserInput();
             boolean isGivingUp = userInput.equals(gameConsole.getGiveUpCommand());
             if (isGivingUp) {
-                updateSession(new Defeat());
+                updateGameStatus(DEFEAT);
                 break;
             }
 
             char letter = userInput.charAt(0);
             var guessResult = game.tryGuess(letter);
             updateSession(guessResult);
-
         }
     }
 
@@ -63,8 +61,14 @@ public final class Session {
         char guessedLetter = guessResult.getGuessedLetter();
         var letterIndexes = guessResult.getLetterIndexes();
         updateUserWord(guessedLetter, letterIndexes);
-        isGameEnd = guessResult.getGameEndStatus();
         gameConsole.printMsg(guessResult.getMsg());
+
+        updateGameStatus(game.getGameStatus());
+    }
+
+    private void updateGameStatus(GameStatus gameStatus) {
+        isGameEnd = gameStatus.isEndGame();
+        gameConsole.printMsg(gameStatus.getMessage());
     }
 
     private void updateUserWord(char letter, List<Integer> indexes) {
