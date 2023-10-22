@@ -5,10 +5,8 @@ import static edu.project1.Utils.isMatchingRegex;
 
 public final class GameConsole {
 
-    private static final String COMMAND_REG_TEMPLATE = "^[\\s]*%s[\\s]*$";
     private static final String GIVE_UP_COMMAND ="gp";
-    private static final String LETTER_REGEX = String.format(COMMAND_REG_TEMPLATE, "[a-zA-z]");
-    private static final String GIVE_UP_REGEX = String.format(COMMAND_REG_TEMPLATE, GIVE_UP_COMMAND);
+    private static final String LETTER_REGEX = "^[\\s]*[a-zA-z][\\s]*$";
     private final Scanner reader;
 
     GameConsole() {
@@ -44,7 +42,7 @@ public final class GameConsole {
             printMsg("");
 
             isLetter = isMatchingRegex(userInput, LETTER_REGEX);
-            isGivingUp = isMatchingRegex(userInput, GIVE_UP_REGEX);
+            isGivingUp = userInput.equals(GIVE_UP_COMMAND);
 
         } while (!isGivingUp && !isLetter);
 

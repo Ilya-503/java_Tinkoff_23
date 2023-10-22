@@ -5,7 +5,10 @@ public final class GameRunner {
         String hiddenWord = WordsDictionary.getRandomWord();
         int maxMistakes = 6;
 
-        Session session = new Session(hiddenWord, 3);
-        session.startGame();
+        try {
+            Session session = SessionBuilder.startNewSession(hiddenWord, maxMistakes);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

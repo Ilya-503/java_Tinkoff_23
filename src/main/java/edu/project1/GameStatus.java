@@ -2,7 +2,8 @@ package edu.project1;
 
 public enum GameStatus implements Status {
 
-    WIN{
+    WIN {
+
         @Override
         public boolean isEndGame() {
             return true;
@@ -14,6 +15,7 @@ public enum GameStatus implements Status {
         }
     },
     DEFEAT {
+
         @Override
         public boolean isEndGame() {
             return true;
@@ -25,6 +27,7 @@ public enum GameStatus implements Status {
         }
     },
     PLAYING {
+
         @Override
         public boolean isEndGame() {
             return false;

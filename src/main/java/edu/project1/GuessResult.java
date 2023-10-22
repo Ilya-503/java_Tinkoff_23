@@ -5,23 +5,14 @@ import java.util.List;
 
 public sealed interface GuessResult {
 
-   char getGuessedLetter();
    List<Integer> getLetterIndexes();
    String getMsg();
 
     final class SuccessGuess implements GuessResult {
-
-        private final char guessedLetter;
         private final List<Integer> letterIndexes;
 
-        public SuccessGuess(char guessedLetter, List<Integer> letterIndexes) {
-            this.guessedLetter = guessedLetter;
+        public SuccessGuess(List<Integer> letterIndexes) {
             this.letterIndexes = letterIndexes;
-        }
-
-        @Override
-        public char getGuessedLetter() {
-            return guessedLetter;
         }
 
         @Override
@@ -43,11 +34,6 @@ public sealed interface GuessResult {
         public FailedGuess(int maxMistakes, int madeMistakes) {
             this.maxMistakes = maxMistakes;
             this.madeMistakes = madeMistakes;
-        }
-
-        @Override
-        public char getGuessedLetter() {
-            return 0;
         }
 
         @Override

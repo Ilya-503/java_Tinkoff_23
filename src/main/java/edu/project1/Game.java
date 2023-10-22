@@ -1,6 +1,7 @@
 package edu.project1;
 
 import edu.project1.GuessResult.*;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -13,48 +14,53 @@ import static edu.project1.Utils.parseWordByChars;
 
 public final class Game {
 
-    private static final String CORRECT_WORD_REGEX = "^[a-zA-Z]{2,}$"; // кол-во букв = 23?
     private final Map<Character, List<Integer>> wordChars;
-    private final int maxMistakes;
     private final Set<Character> guessedLetters;
+    private final int maxMistakes;
+    private final String hiddenWord;
     private int madeMistakes;
+    private GameStatus gameStatus;
 
-    public Game(String hiddenWord, int maxMistakes, int madeMistakes) {
+
+    public Game(String hiddenWord, int maxMistakes) {
+        this.hiddenWord = hiddenWord;
         this.maxMistakes = maxMistakes;
-        this.madeMistakes = madeMistakes;
         this.guessedLetters = new HashSet<>();
+        madeMistakes = 0;
         wordChars = parseWordByChars(hiddenWord);
+        gameStatus = PLAYING;
     }
 
     public GuessResult tryGuess(char letter) {
         if (wordChars.containsKey(letter)) {
             guessedLetters.add(letter);
+            if (guessedLetters.size() == wordChars.size()) {
+                gameStatus = WIN;
+            }
             var letterIndexes = wordChars.get(letter);
-            return new SuccessGuess(letter, letterIndexes);
+            return new SuccessGuess(letterIndexes);
         }
+
         madeMistakes++;
+        if (madeMistakes == maxMistakes) {
+            gameStatus = DEFEAT;
+        }
         return new FailedGuess(maxMistakes, madeMistakes);
     }
 
+    public void giveUp() {
+        gameStatus = DEFEAT;
+    }
+
     public GameStatus getGameStatus() {
-        if (madeMistakes + 1 > maxMistakes) {
-            return DEFEAT;
-        }
-        if (guessedLetters.size() == wordChars.size()) {
-            return WIN;
-        }
-        return PLAYING;
-    }
-
-    public boolean checkIfLegalWord(String word) {
-        return isMatchingRegex(word, CORRECT_WORD_REGEX);
-    }
-
-    public boolean checkIfLegalMaxMistakes() {   // maxMistake < wordChars.len - 1
-        return maxMistakes > 0 && maxMistakes < 23;
+        return gameStatus;
     }
 
     public int getMaxMistakes() {
         return maxMistakes;
+    }
+
+    public String getHiddenWord() {
+        return hiddenWord;
     }
 }
