@@ -1,11 +1,6 @@
 package edu.project1;
 
-import java.lang.reflect.Parameter;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.regex.Pattern;
-import static edu.project1.InputType.GIVE_UP;
-import static edu.project1.InputType.LETTER;
 import static edu.project1.Utils.isMatchingRegex;
 
 public final class GameConsole {
@@ -14,44 +9,50 @@ public final class GameConsole {
     private static final String GIVE_UP_COMMAND ="gp";
     private static final String LETTER_REGEX = String.format(COMMAND_REG_TEMPLATE, "[a-zA-z]");
     private static final String GIVE_UP_REGEX = String.format(COMMAND_REG_TEMPLATE, GIVE_UP_COMMAND);
-
     private final Scanner reader;
 
     GameConsole() {
         reader = new Scanner(System.in);
     }
 
-    public String getGiveUpCommand() {
-        return GIVE_UP_COMMAND;
+    public void printStartMsg(int maxMistakes, int hiddenWordLen) {
+        printMsg("Welcome!");
+        printMsg(String.format("You can make %d mistakes", maxMistakes));
+        printMsg(String.format("Word's length: %d", hiddenWordLen));
+        printMsg(String.format("Type %s to give up\n", GIVE_UP_COMMAND));
     }
 
-    InputType getUserInput() {
+    public void printIllegalHiddenWord(String word) {
+        printMsg(
+            String.format("Can't play with word \"%s\"", word)
+        );
+    }
+
+    public void printIllegalMaxMistakes() {
+        printMsg("Maximum mistakes value must be positive");
+    }
+
+    public String getUserInput() {
 
         boolean isLetter = false;
         boolean isGivingUp = false;
+        String userInput;
 
         do {
-            String userInput = readString();
+            printMsg("Try guess: ");
+            userInput = reader.nextLine();
+            printMsg("");
+
             isLetter = isMatchingRegex(userInput, LETTER_REGEX);
             isGivingUp = isMatchingRegex(userInput, GIVE_UP_REGEX);
 
         } while (!isGivingUp && !isLetter);
 
-        if (isLetter) {
-            return LETTER;
-        }
-        return GIVE_UP;
+        return userInput;
     }
 
-
-
-    private String readString() {
-        String str;
-        printMsg("Try guess: ");
-        str = reader.nextLine();
-        printMsg("");
-
-        return str;
+    public String getGiveUpCommand() {
+        return GIVE_UP_COMMAND;
     }
 
     void printMsg(String msg) {

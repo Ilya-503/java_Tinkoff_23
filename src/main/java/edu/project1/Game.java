@@ -1,33 +1,52 @@
 package edu.project1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import edu.project1.GuessResultType.GuessResult;
+import edu.project1.GuessResultType.GuessResult.*;
 import java.util.List;
 import java.util.Map;
+import static edu.project1.Utils.isMatchingRegex;
+import static edu.project1.Utils.parseWordByChars;
 
 public final class Game {
 
-    public static void main(String[] args) {
-        System.out.println(new Game().wordChars);
-    }
-
-    private final String hiddenWord ;
+    private static final String CORRECT_WORD_REGEX = "^[a-zA-Z]{2,}$"; // кол-во букв = 23?
     private final Map<Character, List<Integer>> wordChars;
+    private final String hiddenWord;
+    private final int maxMistakes;
+    private int madeMistakes;
 
-    Game() {
-        hiddenWord = WordsDictionary.getRandomWord();
+    public Game(String hiddenWord, int maxMistakes, int madeMistakes) {
+        this.hiddenWord = hiddenWord;
+        this.maxMistakes = maxMistakes;
+        this.madeMistakes = madeMistakes;
         wordChars = parseWordByChars(hiddenWord);
     }
 
-    private Map<Character, List<Integer>> parseWordByChars(final String word) {
-        var wordChars = new HashMap<Character, List<Integer>>();
-        char[] chars = word.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            char ch = chars[i];
-
-            wordChars.computeIfAbsent(ch, k -> new ArrayList<>());
-            wordChars.get(ch).add(i);
+    public GuessResult tryGuess(char letter) {
+        if (wordChars.containsKey(letter)) {
+            var letterIndexes = wordChars.remove(letter);
+            if (wordChars.isEmpty()) {
+                return new Win(letter, letterIndexes);
+            }
+            return new SuccessGuess(letter, letterIndexes);
         }
-        return wordChars;
+
+        madeMistakes++;
+        if (madeMistakes + 1 > maxMistakes) {
+            return new Defeat();
+        }
+        return new FailedGuess(maxMistakes, madeMistakes);
+    }
+
+    public boolean checkIfLegalWord() {
+        return isMatchingRegex(hiddenWord, CORRECT_WORD_REGEX);
+    }
+
+    public boolean checkIfLegalMaxMistakes() {   // maxMistake < wordChars.len - 1
+        return maxMistakes > 0 && maxMistakes < 23;
+    }
+
+    public int getMaxMistakes() {
+        return maxMistakes;
     }
 }
