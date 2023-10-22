@@ -1,15 +1,14 @@
-package edu.project1;
+package edu.project1.Game;
 
-import edu.project1.GuessResult.*;
-import java.util.Arrays;
+import edu.project1.Game.status.GameStatus;
+import edu.project1.Game.GuessResult.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import static edu.project1.GameStatus.DEFEAT;
-import static edu.project1.GameStatus.WIN;
-import static edu.project1.GameStatus.PLAYING;
-import static edu.project1.Utils.isMatchingRegex;
+import static edu.project1.Game.status.GameStatus.DEFEAT;
+import static edu.project1.Game.status.GameStatus.WIN;
+import static edu.project1.Game.status.GameStatus.PLAYING;
 import static edu.project1.Utils.parseWordByChars;
 
 public final class Game {

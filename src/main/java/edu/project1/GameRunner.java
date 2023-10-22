@@ -1,5 +1,8 @@
 package edu.project1;
 
+import edu.project1.session.Session;
+import edu.project1.session.SessionBuilder;
+
 public final class GameRunner {
     public static void main(String[] args) {
         String hiddenWord = WordsDictionary.getRandomWord();

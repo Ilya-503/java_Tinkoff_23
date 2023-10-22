@@ -1,4 +1,4 @@
-package edu.project1;
+package edu.project1.Game.status;
 
 public sealed interface Status permits GameStatus {
 

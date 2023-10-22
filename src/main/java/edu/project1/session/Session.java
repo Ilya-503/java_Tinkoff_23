@@ -1,9 +1,11 @@
-package edu.project1;
+package edu.project1.session;
 
+import edu.project1.Game.Game;
+import edu.project1.Game.status.GameStatus;
+import edu.project1.Game.GuessResult;
 import java.util.Arrays;
 import java.util.List;
-import static edu.project1.GameStatus.DEFEAT;
-import static edu.project1.GameStatus.PLAYING;
+import static edu.project1.Game.status.GameStatus.DEFEAT;
 
 public final class Session {
 

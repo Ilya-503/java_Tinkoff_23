@@ -1,4 +1,4 @@
-package edu.project1;
+package edu.project1.session;
 
 import java.util.Scanner;
 import static edu.project1.Utils.isMatchingRegex;

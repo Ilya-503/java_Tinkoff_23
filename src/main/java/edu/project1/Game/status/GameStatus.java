@@ -1,4 +1,6 @@
-package edu.project1;
+package edu.project1.Game.status;
+
+import edu.project1.Game.status.Status;
 
 public enum GameStatus implements Status {
 

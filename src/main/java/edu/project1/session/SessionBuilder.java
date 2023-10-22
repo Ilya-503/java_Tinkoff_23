@@ -1,8 +1,7 @@
-package edu.project1;
+package edu.project1.session;
 
+import edu.project1.session.Session;
 import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Pattern;
 import static edu.project1.Utils.isMatchingRegex;
 
 public final class SessionBuilder {
