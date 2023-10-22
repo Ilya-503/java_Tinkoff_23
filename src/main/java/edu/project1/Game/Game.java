@@ -31,7 +31,11 @@ public final class Game {
         gameStatus = PLAYING;
     }
 
-    public GuessResult tryGuess(char letter) {
+    public GuessResult tryGuess(char letter) throws UpdatingFinishedGameException {
+        if (!gameStatus.equals(PLAYING)) {
+            throw new UpdatingFinishedGameException("Can't guess cause game has already finished");
+        }
+
         if (wordChars.containsKey(letter)) {
             guessedLetters.add(letter);
             if (guessedLetters.size() == wordChars.size()) {
@@ -48,7 +52,10 @@ public final class Game {
         return new FailedGuess(maxMistakes, madeMistakes);
     }
 
-    public void giveUp() {
+    public void giveUp() throws UpdatingFinishedGameException {
+        if (!gameStatus.equals(PLAYING)) {
+            throw new UpdatingFinishedGameException("Can't give up cause game has already finished");
+        }
         gameStatus = DEFEAT;
     }
 
