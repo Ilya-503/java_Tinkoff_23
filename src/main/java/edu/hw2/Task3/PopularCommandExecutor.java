@@ -1,12 +1,19 @@
 package edu.hw2.Task3;
 
-import edu.hw2.Task3.ConnectionManager.ConnectionManager;
-import static edu.hw2.Task3.Utils.LOGGER;
+import edu.hw2.Task3.connection.Connection;
+import edu.hw2.Task3.connectionManager.ConnectionManager;
+import edu.hw2.Task3.exceptions.ConnectionException;
+import edu.hw2.Task3.exceptions.OutOfLimitedAttemptsException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import java.util.concurrent.Executor;
 
 public class PopularCommandExecutor {
 
     private final ConnectionManager manager;
     private final int maxAttempts;
+    private final CommandExecutor executor;
+    private final Logger logger;
 
     public PopularCommandExecutor(ConnectionManager manager, int maxAttempts) {
         if (manager == null || maxAttempts <= 0) {
@@ -15,34 +22,12 @@ public class PopularCommandExecutor {
 
         this.manager = manager;
         this.maxAttempts = maxAttempts;
+        executor = new CommandExecutor();
+        logger = LogManager.getLogger();
     }
 
     public void updatePackages() {
-        tryExecute("apt update && apt upgrade -y");
-    }
-
-    private void tryExecute(String command) throws ConnectionException {
-        int curAttempt = 1;
-
-        while (maxAttempts - curAttempt > -1) {
-            try (var connection = manager.getConnection()) {
-                LOGGER.info("Trying to execute command: " + command);
-                LOGGER.info(String.format("Attempt: %d from %d", curAttempt, maxAttempts));
-                connection.execute(command);
-                LOGGER.info("Executed successfully!");
-                return;
-
-            } catch (ConnectionException e) {
-                LOGGER.error("Connection failed");
-                curAttempt++;
-
-                if (curAttempt > maxAttempts) {
-                    throw new ConnectionException("Out of limited attempts", e);
-                }
-
-            } catch (Exception e) {
-                LOGGER.error(e.getMessage());
-            }
-        }
+        logger.info("Trying to updatePackages");
+        executor.execute(manager, "apt update && apt upgrade -y", maxAttempts);
     }
 }
