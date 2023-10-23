@@ -1,12 +1,8 @@
 package edu.hw2.Task3;
 
-import edu.hw2.Task3.connection.Connection;
 import edu.hw2.Task3.connectionManager.ConnectionManager;
-import edu.hw2.Task3.exceptions.ConnectionException;
-import edu.hw2.Task3.exceptions.OutOfLimitedAttemptsException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.concurrent.Executor;
 
 public class PopularCommandExecutor {
 

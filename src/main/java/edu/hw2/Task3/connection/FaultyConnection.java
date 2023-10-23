@@ -1,9 +1,9 @@
 package edu.hw2.Task3.connection;
 
 import edu.hw2.Task3.exceptions.ConnectionException;
+import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.Random;
 
 public class FaultyConnection implements Connection {
 
