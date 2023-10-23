@@ -4,7 +4,6 @@ import edu.hw2.Task3.exceptions.ConnectionException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.Random;
-import static edu.hw2.Task3.Utils.imitateConnection;
 
 public class FaultyConnection implements Connection {
 
@@ -18,7 +17,7 @@ public class FaultyConnection implements Connection {
 
     @Override
     public void execute(String command) throws ConnectionException {
-        imitateConnection(logger);
+        logger.info("executing command ...");
 
         double curFailChance = new Random().nextDouble();
         if (curFailChance <= failChance) {

@@ -4,7 +4,6 @@ import edu.hw2.Task3.connection.Connection;
 import edu.hw2.Task3.connection.FaultyConnection;
 import edu.hw2.Task3.connection.StableConnection;
 import java.util.Random;
-import  edu.hw2.Task3.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,7 +21,7 @@ public class DefaultConnectionManager implements ConnectionManager {
 
     @Override
     public Connection getConnection() {
-       Utils.imitateGettingConnection(logger);
+       logger.info("getting connection ...");
 
         double chance = new Random().nextDouble();
 
