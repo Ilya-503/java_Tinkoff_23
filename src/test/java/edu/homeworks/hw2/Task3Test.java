@@ -1,4 +1,4 @@
-package edu.hw2;
+package edu.homeworks.hw2;
 
 import edu.homeworks.hw2.Task3.connection.Connection;
 import edu.homeworks.hw2.Task3.connection.FaultyConnection;

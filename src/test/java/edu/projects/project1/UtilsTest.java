@@ -1,4 +1,4 @@
-package edu.project1;
+package edu.projects.project1;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

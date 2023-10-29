@@ -1,4 +1,4 @@
-package edu.hw2;
+package edu.homeworks.hw2;
 
 import edu.homeworks.hw2.Task4.CallingInfo;
 import edu.homeworks.hw2.Task4.SystemUtils;

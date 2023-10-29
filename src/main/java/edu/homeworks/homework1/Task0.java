@@ -2,17 +2,8 @@ package edu.homeworks.homework1;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public final class Task0 {
-    public static void main(String[] args) {
-        int[] a = new int[] {-3, -2, 0, 1, 2, 10};
-        int[] res = getSortedSquares(a);
-        Arrays.stream(res).forEach(System.out::println);
-
-    }
 
     static int[] getSortedSquares(int[] arr) {
         int len = arr.length;
