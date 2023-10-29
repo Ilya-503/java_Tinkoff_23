@@ -1,7 +1,7 @@
 package edu.project1;
 
-import edu.project1.Game.Game;
-import edu.project1.Game.status.GameStatus;
+import edu.projects.project1.Game.Game;
+import edu.projects.project1.Game.status.GameStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,9 +9,9 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
-import static edu.project1.Game.status.GameStatus.DEFEAT;
-import static edu.project1.Game.status.GameStatus.PLAYING;
-import static edu.project1.Game.status.GameStatus.WIN;
+import static edu.projects.project1.Game.status.GameStatus.DEFEAT;
+import static edu.projects.project1.Game.status.GameStatus.PLAYING;
+import static edu.projects.project1.Game.status.GameStatus.WIN;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameTest {

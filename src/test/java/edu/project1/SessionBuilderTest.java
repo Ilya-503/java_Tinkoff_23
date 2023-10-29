@@ -1,6 +1,6 @@
 package edu.project1;
 
-import edu.project1.session.SessionBuilder;
+import edu.projects.project1.session.SessionBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

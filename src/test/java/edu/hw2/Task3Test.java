@@ -1,12 +1,11 @@
 package edu.hw2;
 
-import edu.hw2.Task3.connection.Connection;
-import edu.hw2.Task3.connection.FaultyConnection;
-import edu.hw2.Task3.connection.StableConnection;
-import edu.hw2.Task3.connectionManager.DefaultConnectionManager;
-import edu.hw2.Task3.connectionManager.FaultyConnectionManager;
-import edu.hw2.Task3.exceptions.ConnectionException;
-import org.assertj.core.api.ThrowableTypeAssert;
+import edu.homeworks.hw2.Task3.connection.Connection;
+import edu.homeworks.hw2.Task3.connection.FaultyConnection;
+import edu.homeworks.hw2.Task3.connection.StableConnection;
+import edu.homeworks.hw2.Task3.connectionManager.DefaultConnectionManager;
+import edu.homeworks.hw2.Task3.connectionManager.FaultyConnectionManager;
+import edu.homeworks.hw2.Task3.exceptions.ConnectionException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,9 +14,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatException;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-import static org.assertj.core.api.Assertions.assertThatNoException;
 
 public class Task3Test {
 

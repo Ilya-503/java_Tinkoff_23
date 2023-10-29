@@ -3,7 +3,7 @@ package edu.homework1;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import static edu.homework1.Task5.isPalindromeDescendant;
+import static edu.homeworks.homework1.Task5.isPalindromeDescendant;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task5Test {

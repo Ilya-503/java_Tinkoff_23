@@ -1,8 +1,7 @@
 package edu.hw2;
 
-import static edu.hw2.Task1.Expression.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import edu.hw2.Task1.Expression;
+import edu.homeworks.hw2.Task1.Expression;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

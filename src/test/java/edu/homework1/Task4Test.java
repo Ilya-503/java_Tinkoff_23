@@ -5,7 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
-import static edu.homework1.Task4.getCorrectStr;
+import static edu.homeworks.homework1.Task4.getCorrectStr;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task4Test {

@@ -3,8 +3,8 @@ package edu.homework1;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import static edu.homework1.Task7.Task7.rotateLeft;
-import static edu.homework1.Task7.Task7.rotateRight;
+import static edu.homeworks.homework1.Task7.Task7.rotateLeft;
+import static edu.homeworks.homework1.Task7.Task7.rotateRight;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class Task7Test {

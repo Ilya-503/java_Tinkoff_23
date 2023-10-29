@@ -1,15 +1,11 @@
 package edu.hw2;
 
-import edu.hw2.Task4.CallingInfo;
-import edu.hw2.Task4.SystemUtils;
+import edu.homeworks.hw2.Task4.CallingInfo;
+import edu.homeworks.hw2.Task4.SystemUtils;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
-import java.util.stream.Stream;
-import static edu.hw2.Task4.SystemUtils.callingInfo;
+import static edu.homeworks.hw2.Task4.SystemUtils.callingInfo;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task4Test {

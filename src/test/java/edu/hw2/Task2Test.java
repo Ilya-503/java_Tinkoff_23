@@ -1,7 +1,7 @@
 package edu.hw2;
 
-import edu.hw2.Task2.Rectangle;
-import edu.hw2.Task2.Square;
+import edu.homeworks.hw2.Task2.Rectangle;
+import edu.homeworks.hw2.Task2.Square;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

@@ -5,7 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThat;
-import static edu.homework1.Task1.getVideoLenInSec;
+import static edu.homeworks.homework1.Task1.getVideoLenInSec;
 
 public class Task1Test {
 

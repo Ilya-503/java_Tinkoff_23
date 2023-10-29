@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import static edu.homework1.Task6.countK;
+import static edu.homeworks.homework1.Task6.countK;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Task6Test {

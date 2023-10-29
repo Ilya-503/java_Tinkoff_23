@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static edu.project1.Utils.parseWordByChars;
-import static edu.project1.Utils.isMatchingRegex;
+import static edu.projects.project1.Utils.parseWordByChars;
+import static edu.projects.project1.Utils.isMatchingRegex;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
