@@ -1,4 +1,4 @@
-package edu.homeworks.hw3;
+package edu.homeworks.hw_3;
 
 import java.util.Map;
 import static java.lang.Character.LOWERCASE_LETTER;

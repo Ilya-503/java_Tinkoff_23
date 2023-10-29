@@ -1,15 +1,15 @@
-package edu.homeworks.hw3;
+package edu.homeworks.hw_3;
 
-import edu.homeworks.hw3.Task5.Contact;
-import edu.homeworks.hw3.Task5.SortDirection;
+import edu.homeworks.hw_3.Task5.Contact;
+import edu.homeworks.hw_3.Task5.SortDirection;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
-import static edu.homeworks.hw3.Task5.SortDirection.ASC;
-import static edu.homeworks.hw3.Task5.SortDirection.DESC;
-import static edu.homeworks.hw3.Task5.Task5.parseContacts;
+import static edu.homeworks.hw_3.Task5.SortDirection.ASC;
+import static edu.homeworks.hw_3.Task5.SortDirection.DESC;
+import static edu.homeworks.hw_3.Task5.Task5.parseContacts;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 

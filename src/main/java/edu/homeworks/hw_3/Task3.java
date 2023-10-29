@@ -1,4 +1,4 @@
-package edu.homeworks.hw3;
+package edu.homeworks.hw_3;
 
 import java.util.HashMap;
 import java.util.Map;

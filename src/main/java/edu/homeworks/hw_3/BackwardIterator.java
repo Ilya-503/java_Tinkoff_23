@@ -1,4 +1,4 @@
-package edu.homeworks.hw3;
+package edu.homeworks.hw_3;
 
 import java.util.Iterator;
 import java.util.List;

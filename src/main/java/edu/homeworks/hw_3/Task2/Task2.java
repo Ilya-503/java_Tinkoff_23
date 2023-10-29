@@ -1,4 +1,4 @@
-package edu.homeworks.hw3.Task2;
+package edu.homeworks.hw_3.Task2;
 
 import java.util.ArrayList;
 import java.util.List;

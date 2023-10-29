@@ -1,4 +1,4 @@
-package edu.homeworks.hw3;
+package edu.homeworks.hw_3;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
