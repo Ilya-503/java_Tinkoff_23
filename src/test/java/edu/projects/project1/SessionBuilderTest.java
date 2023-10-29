@@ -1,4 +1,4 @@
-package edu.project1;
+package edu.projects.project1;
 
 import edu.projects.project1.session.SessionBuilder;
 import org.junit.jupiter.api.DisplayName;

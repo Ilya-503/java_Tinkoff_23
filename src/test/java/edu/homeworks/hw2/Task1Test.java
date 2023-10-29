@@ -1,4 +1,4 @@
-package edu.hw2;
+package edu.homeworks.hw2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import edu.homeworks.hw2.Task1.Expression;
@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import java.util.stream.Stream;
+import edu.homeworks.hw2.Task1.Expression.*;
 
 public class Task1Test {
 

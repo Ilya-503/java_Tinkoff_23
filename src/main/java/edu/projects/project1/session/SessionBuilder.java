@@ -1,7 +1,6 @@
 package edu.projects.project1.session;
 
 import edu.projects.project1.Utils;
-
 import java.util.HashSet;
 
 public final class SessionBuilder {

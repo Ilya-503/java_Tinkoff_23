@@ -1,8 +1,7 @@
 package edu.projects.project1.session;
 
-import java.util.Scanner;
-
 import edu.projects.project1.Utils;
+import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
