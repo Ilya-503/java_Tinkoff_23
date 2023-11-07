@@ -7,7 +7,7 @@ public final class Task7 {
     private static final Pattern  LENGTH_MORE_TWO_SYMBOLS =
         Pattern.compile("^[0,1]{2}0[0,1]*$");
     private static final Pattern STARTS_ENDS_THE_SAME_SYMBOL_PATTERN =
-        Pattern.compile("(^1[1,0]*1$)|(^0[1,0]*0$)");
+        Pattern.compile("^([01])([01]*(\\1))?$");
     private static final Pattern LENGTH_BETWEEN_ONE_AND_THREE_PATTERN =
         Pattern.compile("^[0,1]{1,3}$");
 
