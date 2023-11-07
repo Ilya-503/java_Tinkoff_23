@@ -15,7 +15,9 @@ public final class Task2 {
     }
 
     public static LocalDate getNextCloserFridayThe13(LocalDate date) {
-
+        if (date == null) {
+            return null;
+        }
         var fridayThe13Dates = getAllFridayThe13InYear(date.getYear());
         for (var fridayDate: fridayThe13Dates) {
             if (fridayDate.isAfter(date)) {
@@ -38,7 +40,7 @@ public final class Task2 {
         List<LocalDate> dates = new ArrayList<>();
         boolean isNotLeapYear = !(Year.isLeap(year));
 
-        if (day < 1 || year < 1) {
+        if (dayOfWeek == null || day < 1 || year < 1) {
             return dates;
         }
 

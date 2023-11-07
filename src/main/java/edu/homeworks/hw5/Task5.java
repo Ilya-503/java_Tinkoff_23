@@ -9,7 +9,10 @@ public final class Task5 {
     private Task5() {
     }
 
-    public boolean isLegalRusCarId(String carID) {
+    public static boolean isLegalRusCarId(String carID) {
+        if (carID == null || carID.isBlank()) {
+            return false;
+        }
         return LEGAL_RUS_CAR_ID_PATTERN.matcher(carID).matches();
     }
 

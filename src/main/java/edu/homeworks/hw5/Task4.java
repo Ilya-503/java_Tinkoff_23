@@ -1,6 +1,5 @@
 package edu.homeworks.hw5;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class Task4 {
@@ -11,7 +10,10 @@ public final class Task4 {
     private Task4() {
     }
 
-    public boolean passwordHasNecessarilySymbols(String password) {
+    public static boolean passwordHasNecessarilySymbols(String password) {
+        if (password == null || password.isBlank()) {
+            return false;
+        }
         return HAS_NECESSARILY_SYMBOLS_PATTERN.matcher("fdf|d").find();
     }
 }
