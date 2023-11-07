@@ -4,6 +4,9 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
+import java.time.temporal.Temporal;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 import static java.time.DayOfWeek.FRIDAY;
@@ -15,16 +18,19 @@ public final class Task2 {
     }
 
     public static LocalDate getNextCloserFridayThe13(LocalDate date) {
-        if (date == null) {
-            return null;
-        }
-        var fridayThe13Dates = getAllFridayThe13InYear(date.getYear());
-        for (var fridayDate: fridayThe13Dates) {
-            if (fridayDate.isAfter(date)) {
-                return fridayDate;
+        TemporalAdjuster closerFriday = TemporalAdjusters.ofDateAdjuster(inputDate -> {
+            int year = inputDate.getYear();
+            while (true) {
+                var fridayThe13Dates = getAllFridayThe13InYear(year);
+                for (var fridayDate : fridayThe13Dates) {
+                    if (fridayDate.isEqual(date) || fridayDate.isAfter(date)) {
+                        return fridayDate;
+                    }
+                    year++;
+                }
             }
-        }
-        return null;
+        });
+        return date.with(closerFriday);
     }
 
 
