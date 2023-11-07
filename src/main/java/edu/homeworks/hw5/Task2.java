@@ -16,7 +16,11 @@ public final class Task2 {
     private Task2() {
     }
 
-    public static LocalDate getNextCloserFridayThe13(LocalDate date) {
+    public static LocalDate getNextCloserFridayThe13Date(LocalDate date) {
+        if (date == null) {
+            return null;
+        }
+
         TemporalAdjuster closerFriday = TemporalAdjusters.ofDateAdjuster(inputDate -> {
             int year = inputDate.getYear();
             while (true) {
@@ -25,8 +29,8 @@ public final class Task2 {
                     if (fridayDate.isEqual(date) || fridayDate.isAfter(date)) {
                         return fridayDate;
                     }
-                    year++;
                 }
+                year++;
             }
         });
         return date.with(closerFriday);
