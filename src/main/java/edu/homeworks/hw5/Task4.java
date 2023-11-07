@@ -14,6 +14,6 @@ public final class Task4 {
         if (password == null || password.isBlank()) {
             return false;
         }
-        return HAS_NECESSARILY_SYMBOLS_PATTERN.matcher("fdf|d").find();
+        return HAS_NECESSARILY_SYMBOLS_PATTERN.matcher(password).find();
     }
 }

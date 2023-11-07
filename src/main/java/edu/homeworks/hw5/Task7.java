@@ -15,23 +15,14 @@ public final class Task7 {
     }
 
     public static boolean hasLengthBigger2WithThirdZero(String str) {
-        if (str == null || str.isBlank()) {
-            return false;
-        }
-        return LENGTH_MORE_TWO_SYMBOLS.matcher(str).matches();
+        return RegexUtils.isMatchingRegex(str, LENGTH_MORE_TWO_SYMBOLS);
     }
 
     public static boolean startsAndEndsWithTheSameSymbols(String str) {
-        if (str == null || str.isBlank()) {
-            return false;
-        }
-        return STARTS_ENDS_THE_SAME_SYMBOL_PATTERN.matcher(str).matches();
+        return RegexUtils.isMatchingRegex(str, STARTS_ENDS_THE_SAME_SYMBOL_PATTERN);
     }
 
     public static boolean hasLengthBetweenOneAndThree(String str) {
-        if (str == null || str.isBlank()) {
-            return false;
-        }
-        return LENGTH_BETWEEN_ONE_AND_THREE_PATTERN.matcher(str).matches();
+        return RegexUtils.isMatchingRegex(str, LENGTH_BETWEEN_ONE_AND_THREE_PATTERN);
     }
 }

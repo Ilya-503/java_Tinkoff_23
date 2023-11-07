@@ -10,10 +10,7 @@ public final class Task5 {
     }
 
     public static boolean isLegalRusCarId(String carID) {
-        if (carID == null || carID.isBlank()) {
-            return false;
-        }
-        return LEGAL_RUS_CAR_ID_PATTERN.matcher(carID).matches();
+        return RegexUtils.isMatchingRegex(carID, LEGAL_RUS_CAR_ID_PATTERN);
     }
 
 
