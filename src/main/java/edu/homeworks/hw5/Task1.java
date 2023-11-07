@@ -2,6 +2,7 @@ package edu.homeworks.hw5;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.List;
@@ -30,19 +31,28 @@ public final class Task1 {
             }
 
             try {
-                LocalDate startDate = LocalDate.parse(matcher.group(1));
-                LocalTime startTime = LocalTime.parse(matcher.group(2));
+                var startDateTime = getDateTime(matcher.group(1), matcher.group(2));
+                var endDateTime = getDateTime(matcher.group(3), matcher.group(4));
 
-                LocalDate endDate = LocalDate.parse(matcher.group(3));
-                LocalTime endTime = LocalTime.parse(matcher.group(4));
+                if (startDateTime.isAfter(endDateTime)) {
+                    throw new IllegalArgumentException("End date before start date");
+                }
 
                 duration = duration.plus(
-                    Duration.between(startDate.atTime(startTime), endDate.atTime(endTime))
+                    Duration.between(startDateTime, endDateTime)
                 );
             } catch (DateTimeParseException ex) {
                 throw new IllegalArgumentException(ex.getMessage());
             }
         }
         return duration.dividedBy(datesStr.size());
+    }
+
+    private static LocalDateTime getDateTime(String dateStr, String timeStr) {
+        return LocalDate
+            .parse(dateStr)
+            .atTime(
+                LocalTime.parse(timeStr)
+            );
     }
 }
