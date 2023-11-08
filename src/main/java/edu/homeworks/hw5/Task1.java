@@ -13,6 +13,8 @@ public final class Task1 {
     private static final Pattern LEGAL_DATE_STRING_REGEX =
         Pattern.compile("^(\\d{4}-\\d{2}-\\d{2}), (\\d{2}:\\d{2}) - (\\d{4}-\\d{2}-\\d{2}), (\\d{2}:\\d{2})$");
 
+    private static final int GROUPS_AMOUNT_IN_DATE_STRING = 4;
+
     private Task1() {
     }
 
@@ -26,7 +28,7 @@ public final class Task1 {
 
         for (var dateStr: datesStr) {
             Matcher matcher = LEGAL_DATE_STRING_REGEX.matcher(dateStr);
-            if (!matcher.matches() | matcher.groupCount() != 4) {
+            if (!matcher.matches() | matcher.groupCount() != GROUPS_AMOUNT_IN_DATE_STRING) {
                 throw new IllegalArgumentException("Illegal string date format: " + dateStr);
             }
 

@@ -8,7 +8,7 @@ public final class Task8 {
         Pattern.compile("^[01]([01]{2})*$");
 
     private static final Pattern ZERO_ODD_OR_ONE_EVEN_PATTERN =
-        Pattern.compile("(^0([01]{2})*$) | (^1[01]([01]{2})*$)");
+        Pattern.compile("(^0([01]{2})*$)|(^1[01]([01]{2})*$)");
 
     private static final Pattern IS_NOT_FOUR_OR_SEVEN_PATTERN =
         Pattern.compile("^(?:(?!\\b1{2,3}\\b)[01])*$");

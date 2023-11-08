@@ -23,10 +23,13 @@ public class Task6Test {
             Arguments.of(null, null, false),
             Arguments.of(null, "afa", false),
             Arguments.of("k", null, false),
+            Arguments.of(" ", "  ", true),
             Arguments.of("k", "K-pop", false),
+            Arguments.of("aop", "poa", false),
             Arguments.of("k", "kek", true),
             Arguments.of("abc", "abc", true),
-            Arguments.of("12", "23_babf_4123_3", true)
+            Arguments.of("ac", "abc", true),
+            Arguments.of("12", "23_babf_413_23", true)
         );
     }
 }
